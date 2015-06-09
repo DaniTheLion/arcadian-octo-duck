@@ -1,0 +1,4 @@
+base_url:
+  http://api.sponsorpay.com/feed
+api_version:
+  v1
