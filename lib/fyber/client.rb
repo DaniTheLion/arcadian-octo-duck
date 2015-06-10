@@ -38,8 +38,9 @@ module Fyber
         request.set_hashkey!(@api_key)
 
         raw_response = connection.get path, request.params
-        response = Response.new(response: raw_response)
+        raise StandardError.new('Bad Request') unless raw_response.success?
 
+        response = Response.new(response: raw_response)
         if response.valid_signature?(@api_key)
           response
         else
