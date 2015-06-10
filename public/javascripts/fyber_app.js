@@ -19,6 +19,8 @@ angular.module('fyberApp', ['ui.bootstrap']).controller('offersCtrl', function (
             error(function(data, status, headers, config) {
                 $scope.submitButton.title = 'Get Offers!';
                 $scope.inProgress = false;
+                $scope.offers = [];
+
                 // log error
             });
     }
