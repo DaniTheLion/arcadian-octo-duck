@@ -10,8 +10,13 @@ class FyberChallenge < Sinatra::Base
   end
 
   get '/offers.json' do
-    res = client.get_offers(params)
-    json offers: res.body['offers']
+    begin
+      res = client.get_offers(params)
+      json offers: res.body['offers']
+    rescue => e
+      status 400
+      json error_msg: e.message
+    end
   end
 
   private
