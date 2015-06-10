@@ -41,11 +41,8 @@ module Fyber
         raise StandardError.new('Bad Request') unless raw_response.success?
 
         response = Response.new(response: raw_response)
-        if response.valid_signature?(@api_key)
-          response
-        else
-          raise StandardError.new('Response is invalid!')
-        end
+        raise StandardError.new('Response is invalid!') unless response.valid_signature?(@api_key)
+        response
       end
 
 
