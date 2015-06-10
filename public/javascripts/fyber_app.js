@@ -24,4 +24,6 @@ angular.module('fyberApp', ['ui.bootstrap']).controller('offersCtrl', function (
                 // log error
             });
     }
+
+    window.scop = $scope;
 });
