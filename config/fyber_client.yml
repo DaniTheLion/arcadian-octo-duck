@@ -11,7 +11,7 @@ default_params:
   locale:
     de
 
-  offer_type:
+  offer_types:
     112
 
   api_key:
