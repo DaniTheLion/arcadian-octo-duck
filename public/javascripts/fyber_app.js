@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fyberApp', []).controller('offersCtrl', function ($scope, $location, $http) {
+angular.module('fyberApp', ['ui.bootstrap']).controller('offersCtrl', function ($scope, $location, $http) {
     $scope.offersQuery = {};
 
     $scope.getOffers = function(){
