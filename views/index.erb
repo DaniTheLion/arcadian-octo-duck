@@ -19,19 +19,39 @@
               <input class="form-control" type="text" required ng-model="offersQuery.uid" /><br/>
 
               <label for="duration">PUB0</label>
-              <input class="form-control" type="text" required ng-model="offersQuery.pub0"/> <br/>
+              <input class="form-control" type="text" ng-model="offersQuery.pub0"/> <br/>
 
               <label for="duration">Page</label>
-              <input class="form-control" type="number" min="1" max="200" required ng-model="offersQuery.page"/><br/>
+              <input class="form-control" type="number" min="1" max="200" ng-model="offersQuery.page"/><br/>
             </div>
-            <input class="btn btn-default" type="submit" ng-disabled="!form.$valid" value="Get Offers" ng-click="getOffers()"/>
+            <input class="btn btn-default" type="submit" ng-disabled="!form.$valid || inProgress" value="{{ submitButton.title }}" ng-click="getOffers()"/>
           </form>
       </div>
+      </hr>
       <div class="col-md-3"></div>
       </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" ng-show="offers.length == 0">
+          <h3>Results</h3>
+          <p>No offers are currently available for this user.<p>
+        </div>
+        <div class="col-md-6" ng-show="offers.length > 0">
+          <h3>Results</h3>
+          <ul>
+              <div ng-repeat="offer in offers">
+                <li>
+                  <img ng-src="{{ offer.thumbnail.lowres }}" alt="Smiley face" height="42" width="42">
+                  Title: {{ offer.title }}, Payout: {{ offer.payout }}
+                </li>
+              </div>
+          </ul>
+        </div>
+
+
+
+        <div class="col-md-3"></div>
+      </div>
     </div>
-        <p>
-          {{ offersQuery }}
-        </p>
     </body>
 </html>
