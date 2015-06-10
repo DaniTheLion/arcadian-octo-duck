@@ -13,7 +13,7 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
           <h2>Get Fyber Offers!</h2>
-          <form novalidate class="simple-form"><br>
+          <form class="simple-form" name="form"><br>
             <div class="form-group">
               <label for="title">UID</label>
               <input class="form-control" type="text" required ng-model="offersQuery.uid" /><br/>
@@ -24,7 +24,7 @@
               <label for="duration">Page</label>
               <input class="form-control" type="number" min="1" max="200" required ng-model="offersQuery.page"/><br/>
             </div>
-            <input class="btn btn-default" type="submit" value="Get Offers" ng-click="getOffers()"/>
+            <input class="btn btn-default" type="submit" ng-disabled="!form.$valid" value="Get Offers" ng-click="getOffers()"/>
           </form>
       </div>
       <div class="col-md-3"></div>
