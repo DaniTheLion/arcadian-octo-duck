@@ -6,5 +6,22 @@
       <script src="javascripts/fyber_app.js"></script>
     </head>
     <body ng-controller="offersCtrl">
+    <h2>Get Fyber Offers!</h2>
+      <form novalidate class="simple-form"><br>
+        <div class="form-group">
+          <label for="title">UID</label>
+          <input class="form-control" type="text" required ng-model="offersQuery.uid" />
+
+          <label for="duration">PUB0</label>
+          <input class="form-control" type="text" required ng-model="offersQuery.pub0"/>
+
+          <label for="duration">Page</label>
+          <input class="form-control" type="number" min="1" max="200" required ng-model="offersQuery.page" style="width: 90px;display: inline;"/>
+        </div>
+        <input class="btn btn-default" type="submit" value="Get Offers" ng-click="getOffers()"/>
+      </form>
+        <p>
+          {{ offersQuery }}
+        </p>
     </body>
 </html>
